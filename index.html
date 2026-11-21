@@ -1,0 +1,538 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Love ♡</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    color: #713f60;
+    background: #fff0f6;
+}
+
+.background {
+    position: fixed;
+    inset: 0;
+    background: url("images/background.jpg") center/cover no-repeat;
+    z-index: -2;
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 225, 239, 0.82);
+    z-index: -1;
+}
+
+/* OPENING SCREEN */
+
+.intro {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, #ffd6e8, #fff0f6, #eadcff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 100;
+    padding: 25px;
+    transition: 0.8s;
+}
+
+.intro-content {
+    background: rgba(255,255,255,0.7);
+    padding: 45px 30px;
+    border-radius: 30px;
+    max-width: 450px;
+    box-shadow: 0 10px 40px #d98bb533;
+}
+
+.intro h1 {
+    font-family: 'Playfair Display', serif;
+    color: #c85d91;
+    margin-bottom: 15px;
+    font-size: 35px;
+}
+
+.intro p {
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.open-btn {
+    border: none;
+    background: #df78a8;
+    color: white;
+    padding: 14px 30px;
+    border-radius: 30px;
+    font-size: 15px;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: bold;
+}
+
+.open-btn:hover {
+    background: #b64e82;
+}
+
+/* HEADER */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 8%;
+    background: rgba(255,255,255,0.65);
+    backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+header h2 {
+    color: #d65b94;
+    font-family: 'Playfair Display', serif;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #854c70;
+    font-weight: 600;
+}
+
+nav a:hover {
+    color: #e65d9c;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+}
+
+.hero-content {
+    max-width: 650px;
+    padding: 50px 35px;
+    border-radius: 30px;
+    background: rgba(255,255,255,0.65);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 10px 40px #c9649726;
+}
+
+.subtitle {
+    color: #d65b94;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 6vw, 55px);
+    color: #b64e82;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.main-button {
+    display: inline-block;
+    background: #e77cac;
+    color: white;
+    text-decoration: none;
+    padding: 14px 27px;
+    border-radius: 30px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.main-button:hover {
+    background: #bf5e91;
+    transform: translateY(-4px);
+}
+
+/* MEMORIES */
+
+.memories, .messages {
+    text-align: center;
+    padding: 100px 8%;
+}
+
+.section-description {
+    margin-bottom: 40px;
+    line-height: 1.8;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-top: 45px;
+}
+
+.photo-card {
+    background: white;
+    padding: 12px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px #ad538226;
+    transition: 0.3s;
+}
+
+.photo-card:hover {
+    transform: translateY(-8px) rotate(1deg);
+}
+
+.photo-card img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 14px;
+}
+
+.photo-card p {
+    padding: 15px 5px 8px;
+    font-weight: 700;
+    color: #b64e82;
+}
+
+/* MESSAGES */
+
+.message-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 45px;
+}
+
+.message-card {
+    background: rgba(255,255,255,0.8);
+    border: 1px solid #ffd0e3;
+    padding: 35px 20px;
+    border-radius: 22px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.message-card:hover {
+    transform: translateY(-7px);
+    background: #ffe4f0;
+}
+
+.message-card span {
+    font-size: 35px;
+    color: #df70a4;
+}
+
+.message-card h3 {
+    margin: 15px 0 10px;
+    color: #a94c7a;
+}
+
+.message-card p {
+    font-size: 13px;
+    color: #c47a9e;
+}
+
+/* POPUP */
+
+.popup {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(70,30,55,0.55);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    z-index: 20;
+}
+
+.popup-content {
+    background: #fff4f9;
+    padding: 45px 30px;
+    max-width: 450px;
+    width: 100%;
+    border-radius: 25px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 10px 40px #0003;
+    animation: appear 0.3s ease;
+}
+
+@keyframes appear {
+    from {transform: scale(0.8); opacity: 0;}
+    to {transform: scale(1); opacity: 1;}
+}
+
+.popup-content h2 {
+    font-family: 'Playfair Display', serif;
+    color: #c85d91;
+    margin-bottom: 20px;
+}
+
+.popup-content p {
+    line-height: 1.9;
+    white-space: pre-line;
+}
+
+.close {
+    position: absolute;
+    top: 12px;
+    right: 20px;
+    border: none;
+    background: none;
+    color: #c85d91;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 50px 20px;
+    background: rgba(255,255,255,0.65);
+}
+
+footer h2 {
+    font-family: 'Playfair Display', serif;
+    color: #c85d91;
+    margin-bottom: 10px;
+}
+
+.footer-heart {
+    font-size: 30px;
+    margin-top: 15px;
+    color: #df70a4;
+}
+
+/* MOBILE */
+
+@media(max-width: 600px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav {
+        gap: 15px;
+        font-size: 13px;
+    }
+
+    .hero-content {
+        padding: 40px 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="background"></div>
+<div class="overlay"></div>
+
+<!-- OPENING SCREEN -->
+
+<div class="intro" id="intro">
+    <div class="intro-content">
+        <h1>haiiii, myyy loveee ♡</h1>
+        <p>
+            i madeee somethinggg specialll for youuu, loveyyyy.
+            a littleee placeee filleddd with ourrr memoriesss
+            and thee wordss i wantt youuu too rememberrr.
+        </p>
+        <button class="open-btn" onclick="openWebsite()">
+            open your surprise ♡
+        </button>
+    </div>
+</div>
+
+<!-- HEADER -->
+
+<header>
+    <h2>♡ our little world</h2>
+    <nav>
+        <a href="#home">home</a>
+        <a href="#memories">memories</a>
+        <a href="#messages">messages</a>
+    </nav>
+</header>
+
+<!-- HOME -->
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <p class="subtitle">a littlee websitee madee witth loveee</p>
+        <h1>Forr Myyy Favoriteee Girlll ♡</h1>
+        <p>
+            Everyyy momentt withh youuu iss somethingg
+            I wantt to keepp foreverr.
+            Youreee myyy favoriteee personn and
+            myyy onlyyyy wifeeee
+        </p>
+        <a href="#memories" class="main-button">
+            explore our memories ♡
+        </a>
+    </div>
+</section>
+
+<!-- MEMORIES -->
+
+<section class="memories" id="memories">
+    <p class="subtitle">little pieces of happiness</p>
+    <h1>heheh withh youuu loveyyyy</h1>
+    <p class="section-description">
+        different moments, different gamess,
+        but always myyy favoriteee personnn besideee meee.
+    </p>
+
+    <div class="gallery">
+
+        <div class="photo-card">
+            <img src="image1.png" alt="Memory 1">
+            <p>myyy favoriteee gameee withh youuu ♡</p>
+        </div>
+
+        <div class="photo-card">
+            <img src="image2.png" alt="Memory 2">
+            <p>I swearrr, itt wass ourr firstt gameee togetherrr</p>
+        </div>
+
+        <div class="photo-card">
+            <img src="image3.png" alt="Memory 3">
+            <p>justtt usss beinggg usss</p>
+        </div>
+
+        <div class="photo-card">
+            <img src="image4.png" alt="Memory 4">
+            <p>memoriesss wortth keepingg</p>
+        </div>
+
+        <div class="photo-card">
+            <img src="image5.png" alt="Memory 5">
+            <p>myyy favoriteee personnn</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- MESSAGES -->
+
+<section class="messages" id="messages">
+    <p class="subtitle">something from my heart</p>
+    <h1>Myyy Messagesss Forrr Youuu ♡</h1>
+
+    <div class="message-container">
+
+        <div class="message-card" onclick="showMessage(0)">
+            <span>♡</span>
+            <h3>Whennn youuu misss meee</h3>
+            <p>click to open</p>
+        </div>
+
+        <div class="message-card" onclick="showMessage(1)">
+            <span>୨୧</span>
+            <h3>Whennn youreee tireddd</h3>
+            <p>clickk to opennn</p>
+        </div>
+
+        <div class="message-card" onclick="showMessage(2)">
+            <span>♡</span>
+            <h3>A reminderr forr youuu</h3>
+            <p>clickkk to opennn</p>
+        </div>
+
+        <div class="message-card" onclick="showMessage(3)">
+            <span>✿</span>
+            <h3>Somethiggng specialll</h3>
+            <p>clickkk to opennn</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- MESSAGE POPUP -->
+
+<div class="popup" id="popup">
+    <div class="popup-content">
+        <button class="close" onclick="closeMessage()">×</button>
+        <h2>For you, my love ♡</h2>
+        <p id="message-text"></p>
+    </div>
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+    <h2>youuu and meee, alwaysss ♡</h2>
+    <p>madeee with loveee, justtt for youuu</p>
+    <p class="footer-heart">♡</p>
+</footer>
+
+<script>
+
+function openWebsite() {
+    const intro = document.getElementById("intro");
+    intro.style.opacity = "0";
+
+    setTimeout(() => {
+        intro.style.display = "none";
+    }, 800);
+}
+
+const messages = [
+
+`i wishhh na katabiiii kitaaaa righttt nowww, loveeeee. i wishhh na kahit simpleng momentssss langgg, magkasamaaaa tayoooo anddd i couldddd shareeee evennn the smallestss thingggs withhhh youuuu. kahittt minsannn magkaibaaaa tayooo nggg ginagawaaaa orrr mayyyy mgaaaa bagaygg tayonggg hindi pagkakaintindihannn, ikawww paaa rinnn yunggg personnn naaa gustooo konggg makasamaaaa saaa mgaaaa moments koooo. imissyouuuysomuchhhhhhh, loveeeee, anddd i hopeeee youuuu neverrr forgetttt howww muchhhh youuuu meannn to meeeee. ♡`,
+
+`pleaseeee don'ttt beeee tooooo hardddd onnn yourselffff, loveeeee. youuuu don'ttt haveeee to gettt everythinggg righttt alllll theee timeeee, anddd youuuu don'ttt haveeee to pressureeee yourselffff justtt to meettt everyone's expectationssss. takeeee yourrrr timeeee, okayiiii? it'ssss okayyyy to haveeee difficultttt dayssss anddd it'ssss okayyyy to feellll tiredddd. i'lllll alwayssss beeee prouddd offff youuuu, evennnn in momentssss naaaa hindi moooo nakikitaaaa yunggg worthhhh nggg efforts moooo. i'mmmm alwayssss rootinggg forrrr youuuuu.`,
+
+`i justtt wanttt to remindddd youuuu naaaa you'reeee alwayssss lovedddd, appreciatedddd, anddd importanttt to meeeee. evennnn whennn weeee haveeee misunderstandingssss, evennnn whennn weeee don'ttt seeeee thingssss theee sameeee wayyyy, i hopeeee weeee neverrr forgettt to understandddd eachhhh otherrrr anddd listennn to whattt weeee bothhhh feellll. i don'ttt expecttt ussss to beeee perfecttt, loveeeee. i justtt wanttt ussss to keep learninggg howww to loveeee eachhhh otherrrr betterrrr. youuuu don'ttt haveeee to changeeee whoooo youuuu areeee justtt to makeeee meeee happyyyy becauseeee i appreciateeee youuuu forrrr beinggg yourrrr trueeee selffff. ♡`,
+
+`i'mmmm stilllll lookinggg forwardddd to allll theee memoriessss we'reeee goinggg to makeeee together, loveeeee. moreeee gamessss, moreeee laughsss, moreeee kwentooossss, moreeee littleeee momentssss, anddd evennnn theee dayssss naaaa hindi tayo magkaintindihan agad buttt stilllll chooseeee to understandddd eachhhh otherrrr. i knowwww weeee won'ttt alwayssss haveeee perfecttt dayssss, buttt i hopeeee weeee continueeee to beeee gentleeee withhhh eachhhh otherrrr, especiallyyyy whennn thingssss gettt difficulttt. i wanttt ussss to growwww togetherrrr, learnnn frommmm ourrrr mistakessss, anddd makeeee moreeee beautifullll memoriessss. i'mmmm alwayssss thankfullll thattt i haveeee youuuuu, anddd iloveyouuuuusomuchhhh loveyyyyy. ♡`
+
+];
+
+function showMessage(index) {
+    document.getElementById("message-text").textContent = messages[index];
+    document.getElementById("popup").style.display = "flex";
+}
+
+function closeMessage() {
+    document.getElementById("popup").style.display = "none";
+}
+
+document.getElementById("popup").addEventListener("click", function(event) {
+    if (event.target === this) {
+        closeMessage();
+    }
+});
+
+</script>
+
+</body>
+</html>
